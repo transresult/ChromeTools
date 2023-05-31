@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromeTools", "ChromeTools\ChromeTools.csproj", "{14B5986C-1DAD-481A-844F-D7A4DDB66C1C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{91046A35-D447-47FA-BEC0-91F284F23A5B} = {91046A35-D447-47FA-BEC0-91F284F23A5B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{91046A35-D447-47FA-BEC0-91F284F23A5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14B5986C-1DAD-481A-844F-D7A4DDB66C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B5986C-1DAD-481A-844F-D7A4DDB66C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B5986C-1DAD-481A-844F-D7A4DDB66C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B5986C-1DAD-481A-844F-D7A4DDB66C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91046A35-D447-47FA-BEC0-91F284F23A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91046A35-D447-47FA-BEC0-91F284F23A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91046A35-D447-47FA-BEC0-91F284F23A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91046A35-D447-47FA-BEC0-91F284F23A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96B9DF4D-D7B6-4F04-9793-A28276B69943}
+	EndGlobalSection
+EndGlobal
