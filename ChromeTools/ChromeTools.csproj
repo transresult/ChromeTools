@@ -8,7 +8,98 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Arrows\Arrowleft.png" />
+    <None Remove="Arrows\Arrowright.png" />
+    <None Remove="Arrows\Arrow_left.png" />
+    <None Remove="Arrows\Arrow_right.png" />
+    <None Remove="Arrows\down3.png" />
+    <None Remove="Arrows\Up3.png" />
+    <None Remove="Background.png" />
+    <None Remove="Icons\accounts.png" />
+    <None Remove="Icons\add.png" />
+    <None Remove="Icons\beenden.png" />
+    <None Remove="Icons\delete.png" />
+    <None Remove="Icons\doublearrows.png" />
+    <None Remove="Icons\DownloadButton.png" />
+    <None Remove="Icons\downloaded.png" />
+    <None Remove="Icons\einstellen.png" />
+    <None Remove="Icons\erstellen.png" />
+    <None Remove="Icons\exit.png" />
+    <None Remove="Icons\exit2.png" />
+    <None Remove="Icons\folder.png" />
+    <None Remove="Icons\loeschen.png" />
+    <None Remove="Icons\loeschen2.png" />
+    <None Remove="Icons\Orderloeschen.png" />
+    <None Remove="Icons\selected.png" />
+    <None Remove="Icons\SortDown.png" />
+    <None Remove="Icons\SortUp.png" />
+    <None Remove="Icons\suchen.png" />
+    <None Remove="Icons\sync.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="aqua-core" Version="5.2.0" />
+    <PackageReference Include="aqua-core-newtonsoft-json" Version="5.2.0" />
+    <PackageReference Include="Google.Apis" Version="1.60.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Remote.Linq" Version="7.1.0" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Arrows\Arrowleft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Arrows\Arrowright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Arrows\Arrow_left.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Arrows\Arrow_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Arrows\down3.png" />
+    <Resource Include="Arrows\Up3.png" />
+    <Resource Include="Background.png" />
+    <Resource Include="Icons\accounts.png" />
+    <Resource Include="Icons\add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\beenden.png" />
+    <Resource Include="Icons\delete.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\doublearrows.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\DownloadButton.png" />
+    <Resource Include="Icons\downloaded.png" />
+    <Resource Include="Icons\einstellen.png" />
+    <Resource Include="Icons\erstellen.png" />
+    <Resource Include="Icons\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\exit2.png" />
+    <Resource Include="Icons\folder.png" />
+    <Resource Include="Icons\loeschen.png" />
+    <Resource Include="Icons\loeschen2.png" />
+    <Resource Include="Icons\Orderloeschen.png" />
+    <Resource Include="Icons\selected.png" />
+    <Resource Include="Icons\SortDown.png" />
+    <Resource Include="Icons\SortUp.png" />
+    <Resource Include="Icons\suchen.png" />
+    <Resource Include="Icons\sync.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

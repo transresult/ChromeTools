@@ -4,10 +4,179 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ChromeTool" Height="485" Width="830" FontStretch="Normal"
-        MinWidth="830" MinHeight="510" Background="LightSlateGray" Loaded="Window_Loaded">
+        Title="ChromeTool" Height="510" Width="850" FontStretch="Normal" 
+        MinWidth="850" MinHeight="510" Background="LightSlateGray" Loaded="Window_Loaded">
 
     <Grid>
+        <Image Margin="0,58,0,0" Grid.RowSpan="2" Source="Background.png" RenderOptions.BitmapScalingMode="HighQuality"  Stretch="UniformToFill"/>
+
+        <Menu HorizontalAlignment="Center" Height="19" VerticalAlignment="Top" Width="850" Background="#f2f2f2" Foreground="#333333">
+            <MenuItem x:Name="PropertiesMenu"  Header="Datei" Margin="5,0,0,0" Foreground="Black">
+                <MenuItem Header="Öffnen" Background="#f2f2f2"/>
+                <MenuItem Header="Speichern" Background="#f2f2f2" Foreground="Black"/>
+                <MenuItem Header="Eigenschaft" Background="#f2f2f2" Foreground="Black" Click="MainMenu_Properties_Click"/>
+                <MenuItem Header="Schließen" Background="#f2f2f2" Foreground="Black" />
+            </MenuItem>
+            <MenuItem Header="Bearbeiten" Background="{x:Null}" Foreground="Black"></MenuItem>
+            <MenuItem Header="Ansicht"  Background="#f2f2f2" Foreground="Black">
+                <MenuItem Header="Hell" Click="LightMode_Click"  Background="#f2f2f2" Foreground="Black"></MenuItem>
+                <MenuItem Header="Dunkel" Click="Darkmode_Click"  Background="#f2f2f2" Foreground="Black"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Hilfe" Foreground="Black">
+                <MenuItem Header="Info" Background="#f2f2f2" Foreground="Black"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+
+        <ToolBar HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="858" Margin="-8,18,0,0">
+            <Button Foreground="#FFF7F6F6" BorderBrush="{x:Null}" Background="{x:Null}" Click="CreateandSetProfil_Click" ToolTip="Profile erstellen und einstellen">
+                <Image Source="Icons/add.png"  RenderOptions.BitmapScalingMode="HighQuality" Height="30" Stretch="Uniform" VerticalAlignment="Center" Width="29" />
+            </Button>
+            <Button Background="{x:Null}" Click="DeleteAllProfiles_Click" ToolTip="Alle Profile löschen">
+                <Image Source="Icons/delete.png" RenderOptions.BitmapScalingMode="HighQuality" Height="30" VerticalAlignment="Center" Width="29" />
+            </Button>
+            
+            <Button  HorizontalAlignment="Left" Height="40" Width="45" Click="ExitButton" ToolTip="Programm Schleißen" VerticalAlignment="Top" Margin="685,-2,0,0">
+                <Image Source="Icons/exit.png"  RenderOptions.BitmapScalingMode="HighQuality" Height="30" Stretch="UniformToFill" VerticalAlignment="Center" Width="29"/>
+            </Button>
+        </ToolBar>
+
+        <Image Margin="1,57,0,0" Grid.RowSpan="2" Source="Background.png" Stretch="UniformToFill"/>
+
+        <ListBox x:Name="ActiveProfileListBox" HorizontalAlignment="Left" Height="276" Margin="9,137,0,0" VerticalAlignment="Top" Width="226" Background="White"  BorderBrush="{x:Null}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,12,0,0" AutomationProperties.Name="{Binding DisplayText}">
+                        <Ellipse Height="24" Width="24" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding PictureUrl}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="{Binding DisplayText}"  />
+                            <TextBlock Text="{Binding ProfileFilePath}" Opacity="0.5" />
+                        </StackPanel>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+        <ListBox x:Name="SelectedProfileListBox" HorizontalAlignment="Left" Height="277" Margin="592,134,0,0" VerticalAlignment="Top" Width="210" Background="White" 
+         ItemsSource="{Binding SelectedProfiles}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,12,0,0" AutomationProperties.Name="{Binding DisplayText}">
+                        <Ellipse Height="24" Width="24" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding PictureUrl}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="{Binding DisplayText}"  />
+                            <TextBlock Text="{Binding ProfileFilePath}" Opacity="0.5" />
+                        </StackPanel>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+
+
+        <ListBox x:Name="DownloadedProfileListBox" HorizontalAlignment="Left" Height="275" Margin="302,138,0,0" VerticalAlignment="Top" Width="212" Background="White" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="0,12,0,0" AutomationProperties.Name="{Binding DisplayText}">
+                        <Ellipse Height="24" Width="24" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding PictureUrl}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="{Binding DisplayText}"  />
+                            <TextBlock Text="{Binding ProfileFilePath}" Opacity="0.5" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Content="      aktive Chromeprofile" HorizontalAlignment="Left" Height="32" Margin="10,106,0,0" VerticalAlignment="Top" Width="226" Background="#FFFF6978" FontFamily="Segoe UI Semibold" FontSize="14"/>
+        <Button HorizontalAlignment="Left" Height="53" Margin="242,229,0,0" VerticalAlignment="Top" Width="55" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DownloadAllProfiles_Click" ToolTip="Alle Profile herunterladen">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Icons/doublearrows.png" RenderOptions.BitmapScalingMode="HighQuality" Height="49" Stretch="Uniform" OpacityMask="Black">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="55" Margin="242,174,0,0" VerticalAlignment="Top" Width="55" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DownloadSelectedProfile_Click" ToolTip="Ausgewählte Profile herunterladen">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Arrows/Arrow_right.png" RenderOptions.BitmapScalingMode="HighQuality"  Height="50" Stretch="Uniform" OpacityMask="Black">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+        </Button>
+        <Label Content="       Ausgewähltes Profile" HorizontalAlignment="Left" Height="32" Margin="593,106,0,0" VerticalAlignment="Top" Width="208" Background="#FFFFFCF9" FontSize="14" FontFamily="Segoe UI Semibold"/>
+        <Label Content="      gespeicherte Chrome" HorizontalAlignment="Left" Height="32" Margin="302,107,0,0" VerticalAlignment="Top" Width="212" FontFamily="Segoe UI Semibold" FontSize="14" Background="#FFB1EDE8"/>
+        <Button HorizontalAlignment="Left" Height="55" Margin="520,174,0,0" VerticalAlignment="Top" Width="55" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="AddProfileToSelectedListbox_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Arrows/Arrow_right.png" RenderOptions.BitmapScalingMode="HighQuality" Height="50" Stretch="Uniform" OpacityMask="Black">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Height="55" Margin="520,227,0,0" VerticalAlignment="Top" Width="55" Background="{x:Null}" BorderBrush="{x:Null}" Click="RemoveProfileFromSelectedListbox_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Arrows/Arrow_left.png" RenderOptions.BitmapScalingMode="HighQuality" Height="50" Stretch="Uniform"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="23" Width="23" Margin="804,146,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="SortUp_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Icons/SortUp.png" RenderOptions.BitmapScalingMode="HighQuality" Height="19"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="23" Margin="804,174,0,0" VerticalAlignment="Top" Width="23" Background="{x:Null}" BorderBrush="{x:Null}" Click="SortDown_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Icons/SortDown.png" RenderOptions.BitmapScalingMode="HighQuality" Height="19"/>
+            </StackPanel>
+        </Button>
+        <StatusBar x:Name="statusBar" HorizontalAlignment="Center" Height="22" Margin="0,450,0,0" VerticalAlignment="Top" Width="848" Background="#FF3B3C40" >
+            <StatusBarItem Margin="0,-4,0,0">
+                <TextBlock x:Name="statusText" Foreground="White" ToolTip="{Binding ElementName=statusText, Path=Text}" Margin="6,0,0,0"/>
+            </StatusBarItem>
+        </StatusBar>
+        <Button HorizontalAlignment="Left" Height="26" Width="26" Margin="487,109,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="SavedProfileRefreshButton_Click" Foreground="{x:Null}" ToolTip="Aktualisieren">
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/sync.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="26" Width="26" Margin="209,107,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="ActiveProfileRefreshButton_Click" Foreground="{x:Null}" ToolTip="Aktualisieren">
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/sync.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="26" Width="26" Margin="774,107,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="SelectedProfileRefreshButton_Click" Foreground="{x:Null}" ToolTip="Aktualisieren">
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/sync.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="26" Margin="302,110,0,0" VerticalAlignment="Top" Width="25" Source="Icons/downloaded.png" RenderOptions.BitmapScalingMode="HighQuality" />
+        <Image HorizontalAlignment="Left" Height="26" Margin="11,109,0,0" VerticalAlignment="Top" Width="25" Source="Icons/accounts.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image HorizontalAlignment="Left" Height="32" Margin="592,107,0,0" VerticalAlignment="Top" Width="30" Source="Icons/selected.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+
 
     </Grid>
 </Window>

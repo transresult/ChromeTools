@@ -1,0 +1,34 @@
+﻿<Window x:Class="ChromeTools.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChromeTools"
+        mc:Ignorable="d"
+           Title="Eigenschaft" Height="340" Width="540" FontStretch="Normal"
+        MinWidth="540" MinHeight="340" Background="#FF555556" ResizeMode="NoResize" Loaded="Window_Loaded">
+
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="252" Margin="12,21,0,0" VerticalAlignment="Top" Width="499">
+            <TabItem Header="User  ">
+                <WrapPanel>
+                    <Label Content="Save Profile As" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="174" Foreground="Black" />
+                    <TextBox x:Name="DownloadedStoreFolderPathTextBox" Width="490" Background="White" TextWrapping="Wrap" Height="36" />
+                </WrapPanel>
+            </TabItem>
+            <TabItem Header="Chrome">
+                <WrapPanel>
+                    <Label Content="Google User Profile" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="128" Foreground="Black" />
+                    <TextBox x:Name="GoogleUserProfilePathTextBox" FontSize="12" Background="White" TextWrapping="Wrap" Width="490" Height="25" />
+                    <Label Content="Windows Chrome Exe" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="176" Foreground="Black" />
+                    <TextBox x:Name="WindowsChromeExePath" Width="490" FontSize="12" Background="White" TextWrapping="Wrap" Height="25"/>
+                </WrapPanel>
+
+            </TabItem>
+        </TabControl>
+
+        <Button x:Name="CloseButton" Content="Abbrechen" HorizontalAlignment="Left" Height="20"  Width="73" Margin="438,276,0,0" VerticalAlignment="Top" Click="CloseButton_Click" />
+        <Button x:Name="SaveButton" Content="Speichern" HorizontalAlignment="Left" Height="20" Margin="362,276,0,0" VerticalAlignment="Top" Width="73" Click="SaveButton_Click"/>
+
+    </Grid>
+</Window>
